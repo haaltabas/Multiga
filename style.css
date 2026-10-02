@@ -364,3 +364,55 @@ button:hover {
     color: #ef4444;
     text-shadow: 2px 2px 4px rgba(0,0,0,.2);
 }
+
+.perfect-victory {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(
+        180deg,
+        #ffd700,
+        #ffec80,
+        #ffffff
+    );
+    color: #4f46e5;
+    padding: 30px;
+    animation: victoryGlow 2s infinite alternate;
+}
+.perfect-victory h1 {
+
+    font-size: 3rem;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 30px gold;
+}
+.perfect-victory h2 {
+
+    font-size: 2rem;
+
+    color: #f59e0b;
+}
+.perfect-victory p {
+
+    font-size: 1.5rem;
+
+    max-width: 600px;
+}
+@keyframes victoryGlow {
+
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.15);
+    }
+
+}
