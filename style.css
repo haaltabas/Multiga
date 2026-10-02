@@ -12,10 +12,16 @@ body {
     min-height: 100vh;
     text-align: center;
 }
-
 #app {
     width: 95%;
     max-width: 500px;
+}
+
+#story {
+    max-width: 80%;
+    margin: 0 auto;
+    padding-right: 70px;
+    line-height: 1.5;
 }
 
 .hidden {
