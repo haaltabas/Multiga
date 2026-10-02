@@ -284,7 +284,7 @@ function showResults() {
     `
     ${starsText}
     <br><br>
-    Score: ${score}/${currentLevel.questionCount}
+    Punts: ${score}/${currentLevel.questionCount}
     `;
 		
 	if (
