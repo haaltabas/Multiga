@@ -9,7 +9,7 @@ const answersContainer = document.getElementById("answers");
 const progressLabel = document.getElementById("progress");
 const scoreText = document.getElementById("score-text");
 
-let last_level = 10;
+let last_level = 20;
 let currentTable = 1;
 let currentQuestion = 0;
 let score = 0;
@@ -68,9 +68,9 @@ function renderMap() {
 			
 			let stars_num = calculateStars(score, level);
 			
-			if(stars == 1) stars = "⭐";
-            if(stars == 2) stars = "⭐⭐";
-            if(stars == 3) stars = "⭐⭐⭐";
+			if(stars_num == 1) stars = "⭐";
+            if(stars_num == 2) stars = "⭐⭐";
+            if(stars_num == 3) stars = "⭐⭐⭐";
 			
 			/*
             if(score >= level.passingScore) stars = "⭐";
