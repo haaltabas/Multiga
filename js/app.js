@@ -259,6 +259,7 @@ function showResults() {
   if (starsEarned >= 1) {	
 	if (starsEarned === 3) {
 		const duration = 3000;
+		if (hasAllStars()) { duration = 6000; }
 		const end = Date.now() + duration;
 		const interval = setInterval(() => {
 			confetti({
@@ -290,21 +291,56 @@ function showResults() {
 		  player.unlockedLevel === last_level &&
 		  (player.scores[last_level] || 0) >= level.passingScore
 		){
-		  document.body.innerHTML = `
-			  <div class="victory">
-				  <h1>🏰 Kingdom Saved!</h1>
-				  <h2>👑 Multiplication Hero</h2>
-				  <p>
-					Congratulations adventurer!
-				  </p>
+			if (hasAllStars()) { 
+				showPerfectEnding(); 
+				
+			} else {
+			  document.body.innerHTML = `
+				  <div class="victory">
+					  <h1>🏰 Aventura finalitzada!!</h1>
+					  <h2>👑 Super joc de multiplicació</h2>
+					  <p>
+						Ara aconsegueix totes les estrelles per assegura-te el súper regal!!
+					  </p>
 
-			  </div>
-		  `;
+				  </div>
+			  `;
+			}
 		}
 	{
 	}
 }
 
+function showPerfectEnding() {
+
+    document.body.innerHTML = `
+        <div class="victory perfect-victory">
+
+            <h1>👑🏆 Aventura de multiplicar 🏆👑</h1>
+
+            <h2>🌟 HAS ACONSEGUIT TOTES LES ESTRELLES! 🌟</h2>
+
+            <p>
+                Has superat tots els nivells amb
+                puntuació perfecta!
+            </p>
+
+            <p>
+                🎉 SUPER REGAL DESBLOQUEJAT 🎉
+            </p>
+			<img src=assets/images/pokopia.png></img>
+        </div>
+    `;
+
+}
+
+function hasAllStars() {
+
+    return LEVELS.every(level => {
+        return player.scores[level.id] === level.questionCount;
+    });
+
+}
 
 function renderAchievements(){
 
