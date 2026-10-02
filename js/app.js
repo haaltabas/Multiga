@@ -470,42 +470,5 @@ function showToast(message, type = "success") {
 }
 
 function drawRoad() {
-    const nodes =
-        document.querySelectorAll(".level-node");
-    const svg =
-        document.getElementById("road-svg");
-    const path =
-        document.getElementById("road-path");
-
-    if(nodes.length < 2) return;
-
-    const svgRect =
-        svg.getBoundingClientRect();
-
-    let d = "";
-
-    nodes.forEach((node, index) => {
-
-        const rect =
-            node.getBoundingClientRect();
-
-        const x =
-            rect.left +
-            rect.width / 2 -
-            svgRect.left;
-
-        const y =
-            rect.top +
-            rect.height / 2 -
-            svgRect.top;
-
-        if(index === 0) {
-            d += `M ${x} ${y}`;
-        }
-        else {
-            d += ` L ${x} ${y}`;
-        }
-    });
-
-    path.setAttribute("d", d);
+   
 }
