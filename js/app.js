@@ -61,23 +61,17 @@ function renderMap() {
                 index % 2 === 0
                     ? "left"
                     : "right";
+	
+			const score = player.scores[level.id] || 0;
 
-            const score = player.scores[level.id] || 0;
-
-            let stars = "";
+			let stars = "";
 			
 			let stars_num = calculateStars(score, level);
 			
 			if(stars_num == 1) stars = "⭐";
-            if(stars_num == 2) stars = "⭐⭐";
-            if(stars_num == 3) stars = "⭐⭐⭐";
+			if(stars_num == 2) stars = "⭐⭐";
+			if(stars_num == 3) stars = "⭐⭐⭐";
 			
-			/*
-            if(score >= level.passingScore) stars = "⭐";
-            if(score >= level.questionCount-(level.questionCount/10)) stars = "⭐⭐";
-            if(score === level.questionCount) stars = "⭐⭐⭐";
-			*/
-
             node.classList.add(
                 "level-node",
                 side
@@ -105,14 +99,19 @@ function renderMap() {
 						node.id = "current-level";
 					}
                 }
-                node.innerHTML =
-                    `
-                    <div>
-                        ${level.name}
-                        <br>
-                        ${stars}
-                    </div>
-                    `;
+				
+				if(level.quizType === "review") {
+					node.innerHTML = `📖<br>${level.name}`;
+				} else {
+					node.innerHTML =
+						`
+						<div>
+							${level.name}
+							<br>
+							${stars}
+						</div>
+						`;
+				}
                 node.onclick =
                     () => startQuiz(level.id);
             }
@@ -173,7 +172,12 @@ function startQuiz(levelId) {
 	document.getElementById("numeric-container").classList.add("hidden");
 	document.getElementById("quiz-title").textContent = currentLevel.name;
 	document.getElementById("story").textContent = currentLevel.story;
-
+	
+	if(currentLevel.quizType === "review") { 
+		showReviewStage();
+ 		return;
+	}
+	
 	displayQuestion();
 }
 
@@ -184,6 +188,9 @@ function displayQuestion() {
 	
     progressLabel.textContent = `Pregunta ${currentQuestion + 1} de ${questions.length}`;
     questionLabel.textContent = `${q.a} × ${q.b} = ?`;
+	
+	
+	
 	
 	if ( currentLevel.quizType === "multiple-choice") { 
 		renderMultipleChoice();
@@ -365,6 +372,9 @@ function goBackToMap() {
     quizScreen.classList.add("hidden");
     resultScreen.classList.add("hidden");
     menuScreen.classList.remove("hidden");
+	document
+	.getElementById("review-screen")
+	.classList.add("hidden");
     renderMap();
 }
 
@@ -471,4 +481,64 @@ function showToast(message, type = "success") {
 
 function drawRoad() {
    
+}
+
+function showReviewStage() {
+   
+    menuScreen.classList.add("hidden");
+	quizScreen.classList.add("hidden");
+	resultScreen.classList.add("hidden");
+	
+	
+	document
+	.getElementById("review-screen")
+	.classList.remove("hidden");
+	 
+	document
+	.getElementById("review-title")
+	.textContent = currentLevel.name;
+	 
+	document
+	.getElementById("review-story")
+	.textContent = currentLevel.story;
+	 
+	renderReviewContent();
+   
+}
+
+function renderReviewContent() {
+
+    const container = document.getElementById("review-content");
+    container.innerHTML = "";
+    currentLevel.tables.forEach(table => {
+        const section = document.createElement("div");
+        section.className = "review-table";
+        let html = `<h3>Taula del ${table}</h3>`;
+
+        for(let i = 1; i <= 10; i++) {
+            html += `
+                <div>
+                    ${table} × ${i}
+                    =
+                    ${table * i}
+                </div>
+            `;
+        }
+
+        section.innerHTML = html;
+        container.appendChild(section);
+    });
+
+}
+
+function completeReviewStage() {
+
+    if(
+        currentLevel.id === player.unlockedLevel
+    ) {
+        player.unlockedLevel++;
+        saveGame();
+    }
+
+    goBackToMap();
 }
