@@ -1,6 +1,3 @@
-
-
-
 const LEVELS = [
   {
     id: 1,
@@ -37,6 +34,17 @@ const LEVELS = [
   },
   {
     id: 4,
+    name: "Taula del 3",
+    tables: [3],
+    story: "Aqui pots revisar la taula del 3",
+	quizType: "review",
+	questionOrder: "sequential",
+	questionCount: null,
+	passingScore: null,
+	maxSeconds: null
+  },
+  {
+    id: 5,
     name: "⛰️ Tres coses",
     tables: [3],
     story: "Podràs arribar al final de la aventura?",
@@ -47,7 +55,18 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 5,
+    id: 6,
+    name: "Taula del 4",
+    tables: [4],
+    story: "Aprofita també per revisar la taula del 4 🐰",
+	quizType: "review",
+	questionOrder: "sequential",
+	questionCount: null,
+	passingScore: null,
+	maxSeconds: null
+  },
+  {
+    id: 7,
     name: "🦅 Primera prova!",
     tables: [2,3,4],
     story: "Aqui comença a ser una mica més dificil, anims!",
@@ -58,7 +77,7 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 6,
+    id: 8,
     name: "🏜️ Temps de multiplicar",
     tables: [2,3,4],
     story: "Compte! Si s'acaba el temps s'acaba! :(",
@@ -69,7 +88,18 @@ const LEVELS = [
 	maxSeconds: 180
   },
   {
-    id: 7,
+    id: 9,
+    name: "Taula del 5",
+    tables: [5],
+    story: "En la taula del 5 tots acaben en 0 o 5!",
+	quizType: "review",
+	questionOrder: "sequential",
+	questionCount: null,
+	passingScore: null,
+	maxSeconds: null
+  },
+  {
+    id: 10,
     name: "❄️ High five",
     tables: [5],
     story: "Al final de l'aventura hi ha un regal molt guay!",
@@ -80,7 +110,7 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 8,
+    id: 11,
     name: "🌋 four fiveeeeee",
     tables: [4,5],
     story: "Si tens tres estrelles en tot tindràs un super regal!",
@@ -91,7 +121,18 @@ const LEVELS = [
 	maxSeconds: 100
   },
   {
-    id: 9,
+    id: 12,
+    name: "Taula del 6",
+    tables: [6],
+    story: "Anims! Ara comença la part difícil, intenta apendre la taula del 6 🐇",
+	quizType: "review",
+	questionOrder: "sequential",
+	questionCount: null,
+	passingScore: null,
+	maxSeconds: null
+  },
+  {
+    id: 13,
     name: "🐉 El drac del sis",
     tables: [6],
     story: "Molt bé! Ja portem la meitat del cami :)",
@@ -102,7 +143,7 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 10,
+    id: 14,
     name: "🏰 El Castell final?",
     tables: [4,5,6],
     story: "Demostra el que saps!",
@@ -113,7 +154,7 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 11,
+    id: 15,
     name: "🏰 Ara si el castell final?",
     tables: [4,5,6],
     story: "Saps que papa segurament es comprarà una switch 2???",
@@ -124,7 +165,18 @@ const LEVELS = [
 	maxSeconds: 120
   },
   {
-    id: 12,
+    id: 16,
+    name: "Taula del 7",
+    tables: [7],
+    story: "Set per set 49! 🥕",
+	quizType: "review",
+	questionOrder: "sequential",
+	questionCount: null,
+	passingScore: null,
+	maxSeconds: null
+  },
+  {
+    id: 17,
     name: "🌱 Tens molta set de set?",
     tables: [7],
     story: "Papa et deixarà jugar a la switch 2, però no te cap joc per a tu :(",
@@ -135,7 +187,7 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 13,
+    id: 18,
     name: "🌲 Ja se el set",
     tables: [7],
     story: "T'agradia tenir algun joc de la switch 2 de regal d'aniversari???",
@@ -146,7 +198,7 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 14,
+    id: 19,
     name: "🌊 six seveeeen",
     tables: [6,7],
     story: "Ja et queda molt poc! :D",
@@ -157,7 +209,18 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 15,
+    id: 20,
+    name: "Taula del 8",
+    tables: [8],
+    story: "Molt bé, ja et queda menys, procatica ara amb lade 8 🍎",
+	quizType: "review",
+	questionOrder: "sequential",
+	questionCount: null,
+	passingScore: null,
+	maxSeconds: null
+  },
+  {
+    id: 21,
     name: "🦅 Infinits vuits!",
     tables: [8],
     story: "Si et pases tot amb 3 estrelles...",
@@ -168,7 +231,7 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 16,
+    id: 22,
     name: "🏜️ vuit o ple?",
     tables: [8],
     story: "Si et pases tot amb 3 estrelles... algu et reglararà un joc de switch 2?",
@@ -179,7 +242,7 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 17,
+    id: 23,
     name: "❄️ 7 per 8???",
     tables: [7,8],
     story: "Ja falta molt poc!",
@@ -190,7 +253,18 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 18,
+    id: 24,
+    name: "Taula del 9",
+    tables: [9],
+    story: "Ja estem al final! Fixat com en aquesta taula cada cop augmenta 1 la desena i disminueix 1 la unitat!",
+	quizType: "review",
+	questionOrder: "sequential",
+	questionCount: null,
+	passingScore: null,
+	maxSeconds: null
+  },
+  {
+    id: 25,
     name: "🌋 Aquest és nou",
     tables: [9],
     story: "Molt bona feina Jana, ja queda menys pel regal!",
@@ -201,7 +275,7 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 19,
+    id: 26,
     name: "🐉 res de nou",
     tables: [9],
     story: "Podràs aconseguir tres estrelles en cada prova?",
@@ -212,7 +286,7 @@ const LEVELS = [
 	maxSeconds: null
   },
   {
-    id: 20,
+    id: 27,
     name: "🏰 La ultima prova!",
     tables: [7,8,9],
     story: "Espectacular Jana, aquest és l'ultim, molts ánims! :D",
@@ -239,4 +313,3 @@ const TRY_AGAIN_MESSAGES = [
   "🌟 Ho pots fer millor!",
   "❤️ La proxima segur que sí!"
 ];
-
