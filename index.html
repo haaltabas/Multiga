@@ -67,11 +67,16 @@
 				</div>
 			</div>
 
-
             <div id="answers"></div>
         </div>
-
-
+		
+		<div id="review-screen" class="screen hidden"> 
+			<button id="close-review" onclick="goBackToMap()"> ❌</button>			 
+			<h2 id="review-title"></h2>			 
+			<p id="review-story"></p>			 
+			<div id="review-content"></div>			 
+			<button id="complete-review-btn" onclick="completeReviewStage()">✅ Continuar Aventura</button>		 
+		</div>
 
         <div id="result-screen" class="screen hidden">
             <h1>🎉 Quiz Finished! 🎉</h1>
